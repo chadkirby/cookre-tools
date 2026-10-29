@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "cookre": { "type": "http", "url": "https://api.cookre.app/mcp" }
+  }
+}

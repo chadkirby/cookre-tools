@@ -1,0 +1,96 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cookre",
+  "version": "1.0.0",
+  "description": "Search, read and edit the recipes in your Cook:RE library from ChatGPT, Codex or Claude.",
+  "author": {
+    "name": "Chad Kirby",
+    "url": "https://www.cookre.app"
+  },
+  "homepage": "https://www.cookre.app",
+  "repository": "https://github.com/chadkirby/cookre-tools",
+  "license": "MIT",
+  "keywords": ["recipes", "cooking", "ingredients", "meal planning"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Cook:RE",
+        "shortDescription": "Search and edit your recipes",
+        "longDescription": "Cook:RE keeps your recipes as structured ingredients and steps. Connect it to search your library, read any recipe, and change it in conversation: swap an ingredient, add a step, or rewrite an instruction. Every edit is saved as a revision you can undo in the Cook:RE app. You can also organize recipes into collections, which the assistant shows you first and applies only after you agree. Needs the Cook:RE app on your iPhone with Cook:RE Unlimited.",
+        "developerName": "Chad Kirby",
+        "category": "Lifestyle",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://www.cookre.app",
+        "supportURL": "https://www.cookre.app/support",
+        "privacyPolicyURL": "https://www.cookre.app/privacy",
+        "termsOfServiceURL": "https://www.cookre.app/terms",
+        "defaultPrompt": [
+          "Find my chili recipe and halve it.",
+          "Make my snickerdoodles dairy-free.",
+          "Which of my recipes use corn?"
+        ],
+        "brandColor": "#C2410C",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon-dark.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find a recipe",
+              "prompt": "Find my chili recipe.",
+              "tools_triggered": "search_recipes",
+              "expected_behavior": "Search the library and report the Simple Beef Chili with Kidney Beans recipe, with its yield and ingredients."
+            },
+            {
+              "description": "Read a recipe",
+              "prompt": "What are the steps for my Japanese milk bread?",
+              "tools_triggered": "search_recipes, get_recipe",
+              "expected_behavior": "Find the Japanese Milk Bread recipe, read it, and list its steps in order without inventing any."
+            },
+            {
+              "description": "Edit an ingredient",
+              "prompt": "In my chili, swap the vegetable oil for olive oil.",
+              "tools_triggered": "search_recipes, get_recipe, search_substances, propose_edit",
+              "expected_behavior": "Read the chili, replace the oil line in one edit, and say the edit was saved and can be undone in the Cook:RE app. A later read of the recipe shows olive oil."
+            },
+            {
+              "description": "Add a step",
+              "prompt": "Add a step to the lemon pudding cake telling me to let it rest for 10 minutes before serving.",
+              "tools_triggered": "search_recipes, get_recipe, propose_edit",
+              "expected_behavior": "Read the recipe and insert one step at the end, without asking for confirmation first. A later read shows the new step."
+            },
+            {
+              "description": "Show collections",
+              "prompt": "What collections do I have, and how many recipes are in none?",
+              "tools_triggered": "list_collections",
+              "expected_behavior": "Report the collections with their recipe counts and how many recipes are in no collection. Make no change."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Create a recipe",
+              "prompt": "Create a new recipe for banana bread in my Cook:RE library."
+            },
+            {
+              "description": "Delete a recipe",
+              "prompt": "Delete my snickerdoodle recipe."
+            },
+            {
+              "description": "Ambiguous recipe",
+              "prompt": "Make the cake less sweet."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "Initial release: search, read and edit your Cook:RE recipes, and organize them into collections."
+      }
+    }
+  }
+}

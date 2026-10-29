@@ -1,0 +1,20 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+      - name: Validate as a Claude plugin
+        run: |
+          npm install --global @anthropic-ai/claude-code
+          claude plugin validate plugins/cookre
+      - name: Build the OpenAI upload ZIP
+        run: |
+          node scripts/build-openai-plugin.mjs
+          unzip -l dist/cookre-openai-*.zip

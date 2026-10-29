@@ -1,0 +1,10 @@
+{
+  "name": "cookre",
+  "version": "1.0.0",
+  "description": "Search, read and edit the recipes in your Cook:RE library from Claude.",
+  "author": { "name": "Chad Kirby", "url": "https://www.cookre.app" },
+  "homepage": "https://www.cookre.app",
+  "repository": "https://github.com/chadkirby/cookre-tools",
+  "license": "MIT",
+  "keywords": ["recipes", "cooking", "ingredients"]
+}
