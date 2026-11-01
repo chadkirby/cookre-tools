@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cookre",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Search, read and edit the recipes in your Cook:RE library from ChatGPT, Codex or Claude.",
   "author": {
     "name": "Chad Kirby",
@@ -10,7 +10,12 @@
   "homepage": "https://www.cookre.app",
   "repository": "https://github.com/chadkirby/cookre-tools",
   "license": "MIT",
-  "keywords": ["recipes", "cooking", "ingredients", "meal planning"],
+  "keywords": [
+    "recipes",
+    "cooking",
+    "ingredients",
+    "meal planning"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -18,8 +23,11 @@
         "shortDescription": "Search and edit your recipes",
         "longDescription": "Cook:RE keeps your recipes as structured ingredients and steps. Connect it to search your library, read any recipe, and change it in conversation: swap an ingredient, add a step, or rewrite an instruction. Every edit is saved as a revision you can undo in the Cook:RE app. You can also organize recipes into collections, which the assistant shows you first and applies only after you agree. Needs the Cook:RE app on your iPhone with Cook:RE Unlimited.",
         "developerName": "Chad Kirby",
-        "category": "Lifestyle",
-        "capabilities": ["Read", "Write"],
+        "category": "Other",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
         "websiteURL": "https://www.cookre.app",
         "supportURL": "https://www.cookre.app/support",
         "privacyPolicyURL": "https://www.cookre.app/privacy",
@@ -53,13 +61,13 @@
             {
               "description": "Edit an ingredient",
               "prompt": "In my chili, swap the vegetable oil for olive oil.",
-              "tools_triggered": "search_recipes, get_recipe, search_substances, propose_edit",
+              "tools_triggered": "search_recipes, get_recipe, search_substances, edit_recipe",
               "expected_behavior": "Read the chili, replace the oil line in one edit, and say the edit was saved and can be undone in the Cook:RE app. A later read of the recipe shows olive oil."
             },
             {
               "description": "Add a step",
               "prompt": "Add a step to the lemon pudding cake telling me to let it rest for 10 minutes before serving.",
-              "tools_triggered": "search_recipes, get_recipe, propose_edit",
+              "tools_triggered": "search_recipes, get_recipe, edit_recipe",
               "expected_behavior": "Read the recipe and insert one step at the end, without asking for confirmation first. A later read shows the new step."
             },
             {
@@ -71,16 +79,19 @@
           ],
           "negative": [
             {
-              "description": "Create a recipe",
-              "prompt": "Create a new recipe for banana bread in my Cook:RE library."
+              "description": "General recipe request",
+              "prompt": "Give me a recipe for banana bread.",
+              "expected_behavior": "Answer as a general recipe request without invoking Cook:RE or searching the user's library."
             },
             {
-              "description": "Delete a recipe",
-              "prompt": "Delete my snickerdoodle recipe."
+              "description": "General question about a recipe title",
+              "prompt": "What is the history of Japanese milk bread?",
+              "expected_behavior": "Answer the general question without retrieving the user's saved Japanese milk bread recipe or calling Cook:RE tools."
             },
             {
-              "description": "Ambiguous recipe",
-              "prompt": "Make the cake less sweet."
+              "description": "Local search mentioning a saved dish",
+              "prompt": "Find a bakery near me that sells snickerdoodles.",
+              "expected_behavior": "Treat this as a local business search; do not call Cook:RE tools."
             }
           ]
         },
@@ -88,7 +99,9 @@
         "commerce_description": "This plugin does not sell products or process payments."
       },
       "publication": {
-        "countries": ["US"],
+        "countries": [
+          "US"
+        ],
         "release_notes": "Initial release: search, read and edit your Cook:RE recipes, and organize them into collections."
       }
     }
