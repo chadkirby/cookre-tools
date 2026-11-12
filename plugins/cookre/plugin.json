@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cookre",
   "version": "1.0.3",
-  "description": "Search, read and edit the recipes in your Cook:RE library from ChatGPT, Codex or Claude.",
+  "description": "Search, read, add and edit the recipes in your Cook:RE library from ChatGPT, Codex or Claude.",
   "author": {
     "name": "Chad Kirby",
     "url": "https://www.cookre.app"
@@ -71,6 +71,12 @@
               "expected_behavior": "Read the recipe and insert one step at the end, without asking for confirmation first. A later read shows the new step."
             },
             {
+              "description": "Add a recipe",
+              "prompt": "Add this to my Cook:RE recipes: Quick Pickled Onions. 1 red onion, thinly sliced; 1/2 cup cider vinegar; 1/2 cup water; 1 tablespoon sugar; 1 1/2 teaspoons salt. Whisk the vinegar, water, sugar and salt until dissolved. Pour over the onion in a jar and let stand 30 minutes.",
+              "tools_triggered": "create_recipe",
+              "expected_behavior": "Call create_recipe once with the recipe text, without asking for confirmation, and say it was added and can be deleted in the Cook:RE app. A later search finds Quick Pickled Onions."
+            },
+            {
               "description": "Show collections",
               "prompt": "What collections do I have, and how many recipes are in none?",
               "tools_triggered": "list_collections",
@@ -102,7 +108,7 @@
         "countries": [
           "US"
         ],
-        "release_notes": "Initial release: search, read and edit your Cook:RE recipes, and organize them into collections."
+        "release_notes": "Initial release: search, read, add and edit your Cook:RE recipes, and organize them into collections."
       }
     }
   }
