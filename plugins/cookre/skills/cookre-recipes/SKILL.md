@@ -16,7 +16,7 @@ import, create or delete a recipe.
    is meant, and offer those titles. Omit the query to list recently edited recipes.
 2. **Read before you edit.** Call `get_recipe` for the recipe. It returns the ingredient lines as
    `L1…`, the steps as `S1…`, and a `baseRev` and `snapshot`.
-3. **Edit with `propose_edit`.** Pass the `recipeId`, `baseRev` and `snapshot` exactly as
+3. **Edit with `edit_recipe`.** Pass the `recipeId`, `baseRev` and `snapshot` exactly as
    `get_recipe` gave them, a one-sentence `summary` the cook will read, and the operations. Name
    lines and steps by their L and S handles, never by position or text. Operations apply in order.
 4. **Resolve a new ingredient.** For an ingredient you add or replace, call `search_substances` and
