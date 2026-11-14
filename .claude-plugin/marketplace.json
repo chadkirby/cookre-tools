@@ -12,7 +12,7 @@
       "name": "cookre",
       "source": "./plugins/cookre",
       "description": "Search, read, add and edit the recipes in your Cook:RE library from Claude.",
-      "version": "1.0.3",
+      "version": "1.0.5",
       "author": { "name": "Chad Kirby", "url": "https://www.cookre.app" },
       "homepage": "https://www.cookre.app",
       "repository": "https://github.com/chadkirby/cookre-tools",
