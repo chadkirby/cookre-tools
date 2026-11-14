@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cookre",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Search, read, add and edit the recipes in your Cook:RE library from ChatGPT, Codex or Claude.",
   "author": {
     "name": "Chad Kirby",
@@ -59,28 +59,22 @@
               "expected_behavior": "Find the Japanese Milk Bread recipe, read it, and list its steps in order without inventing any."
             },
             {
-              "description": "Edit an ingredient",
-              "prompt": "In my chili, swap the vegetable oil for olive oil.",
+              "description": "Edit a recipe (swap an ingredient and add a step)",
+              "prompt": "In my chili, swap the vegetable oil for olive oil and add a step at the end telling me to let it rest for 10 minutes before serving.",
               "tools_triggered": "search_recipes, get_recipe, search_substances, edit_recipe",
-              "expected_behavior": "Read the chili, replace the oil line in one edit, and say the edit was saved and can be undone in the Cook:RE app. A later read of the recipe shows olive oil."
-            },
-            {
-              "description": "Add a step",
-              "prompt": "Add a step to the lemon pudding cake telling me to let it rest for 10 minutes before serving.",
-              "tools_triggered": "search_recipes, get_recipe, edit_recipe",
-              "expected_behavior": "Read the recipe and insert one step at the end, without asking for confirmation first. A later read shows the new step."
+              "expected_behavior": "Find and read Simple Beef Chili with Kidney Beans, resolve olive oil with search_substances, and apply both the ingredient replacement and the new final step using edit_recipe without asking for confirmation first. Report that the edit was saved and can be undone in the Cook:RE app. A later get_recipe shows olive oil and the new resting step."
             },
             {
               "description": "Add a recipe",
               "prompt": "Add this to my Cook:RE recipes: Quick Pickled Onions. 1 red onion, thinly sliced; 1/2 cup cider vinegar; 1/2 cup water; 1 tablespoon sugar; 1 1/2 teaspoons salt. Whisk the vinegar, water, sugar and salt until dissolved. Pour over the onion in a jar and let stand 30 minutes.",
               "tools_triggered": "create_recipe",
-              "expected_behavior": "Call create_recipe once with the recipe text, without asking for confirmation, and say it was added and can be deleted in the Cook:RE app. A later search finds Quick Pickled Onions."
+              "expected_behavior": "Call create_recipe once with the recipe text, without asking for confirmation, and say it was added and can be deleted in the Cook:RE app. A later search_recipes finds Quick Pickled Onions."
             },
             {
-              "description": "Show collections",
-              "prompt": "What collections do I have, and how many recipes are in none?",
-              "tools_triggered": "list_collections",
-              "expected_behavior": "Report the collections with their recipe counts and how many recipes are in no collection. Make no change."
+              "description": "List and update collections",
+              "prompt": "What collections do I have? Also put my Lemon Pudding Cake in a new Desserts collection. (Follow-up after preview: \"Yes, go ahead and apply that.\")",
+              "tools_triggered": "list_collections, search_recipes, preview_collection_changes, apply_collection_changes",
+              "expected_behavior": "Call list_collections (showing Cookies with 1 recipe and 5 uncollected recipes) and search_recipes to locate Lemon Pudding Cake, then call preview_collection_changes to preview creating Desserts with Lemon Pudding Cake. Show the previewed plan and ask for confirmation without applying yet. After the user confirms, call apply_collection_changes. A subsequent list_collections shows both Cookies (1 recipe) and Desserts (1 recipe)."
             }
           ],
           "negative": [
