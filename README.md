@@ -16,9 +16,28 @@ remote MCP server at `https://api.cookre.app/mcp` (OAuth). It carries:
 - `.claude-plugin/plugin.json`, `.mcp.json`: Claude's manifest and server reference, so the same
   folder serves Claude's plugin directory.
 
+The repository root's `.claude-plugin/marketplace.json` makes this repository a Claude plugin
+marketplace that lists the plugin.
+
 The plugin needs nothing from the Cook:RE app's repository. The two meet at the MCP tools' names
 and meaning: renaming a tool breaks every connected assistant, so update the skill in the same
 release.
+
+### Install it in Claude
+
+Add `chadkirby/cookre-tools` as a marketplace (Claude Code, or Add marketplace in the Claude app),
+then install the plugin. In Claude Code:
+
+```
+/plugin install cookre --marketplace chadkirby/cookre-tools
+```
+
+or, in two steps:
+
+```
+/plugin marketplace add chadkirby/cookre-tools
+/plugin install cookre@cookre
+```
 
 ### Build the OpenAI upload
 
@@ -34,8 +53,13 @@ Claude files.
 ### Check it as a Claude plugin
 
 ```bash
-claude plugin validate plugins/cookre
+claude plugin validate --strict .               # the marketplace
+claude plugin validate --strict plugins/cookre  # the plugin
+node scripts/check-versions.mjs                 # the three manifests agree on the version
 ```
+
+Bump the version in `plugins/cookre/plugin.json`, `plugins/cookre/.claude-plugin/plugin.json` and
+the plugin's entry in `.claude-plugin/marketplace.json` together.
 
 ### Status of the review cases
 

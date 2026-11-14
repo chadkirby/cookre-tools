@@ -1,0 +1,24 @@
+{
+  "name": "cookre",
+  "owner": {
+    "name": "Chad Kirby",
+    "url": "https://www.cookre.app"
+  },
+  "metadata": {
+    "description": "Cook:RE's plugins for Claude: connect Claude to your Cook:RE recipe library."
+  },
+  "plugins": [
+    {
+      "name": "cookre",
+      "source": "./plugins/cookre",
+      "description": "Search, read, add and edit the recipes in your Cook:RE library from Claude.",
+      "version": "1.0.3",
+      "author": { "name": "Chad Kirby", "url": "https://www.cookre.app" },
+      "homepage": "https://www.cookre.app",
+      "repository": "https://github.com/chadkirby/cookre-tools",
+      "license": "MIT",
+      "keywords": ["recipes", "cooking", "ingredients", "meal planning"],
+      "category": "productivity"
+    }
+  ]
+}
