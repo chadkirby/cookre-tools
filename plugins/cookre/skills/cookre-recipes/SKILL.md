@@ -86,4 +86,4 @@ unrelated recipe.
 
 Guides for the cook, which you can link: https://www.cookre.app/docs (scaling and editing:
 https://www.cookre.app/docs/scaling-and-editing, connecting an assistant:
-https://www.cookre.app/docs/assistant-setup).
+https://www.cookre.app/connect).
