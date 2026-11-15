@@ -16,8 +16,8 @@ from Claude, then confirm on their iPhone with a code. Until they do, there are 
 in the conversation. When they ask about their recipes and you can't find the tools:
 
 - Tell them in one or two sentences that Cook:RE isn't connected to Claude yet. Then send them to
-  **https://www.cookre.app/connect** on a computer, which walks through the Claude steps and the
-  pairing with the app. It needs Cook:RE Unlimited.
+  the setup guide at **https://www.cookre.app/docs/v1.2/assistant-setup**, which walks through
+  connecting Claude on a computer and pairing with the app. It needs Cook:RE Unlimited.
 - Don't try to reach Cook:RE another way, such as a shell command, a web request or a search of
   the connector directory. There is no other way in, and nothing you find there is their library.
 - Don't guess at their recipes or answer from a general recipe instead.
