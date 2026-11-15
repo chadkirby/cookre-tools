@@ -3,6 +3,11 @@
 Public tools for [Cook:RE](https://www.cookre.app). Today that is the assistant plugin; other
 utilities may join it.
 
+## Privacy
+
+The plugin sends requests to Cook:RE's servers. See the
+[Cook:RE privacy policy](https://www.cookre.app/privacy).
+
 ## The Cook:RE plugin
 
 `plugins/cookre/` connects ChatGPT, Codex and Claude to a cook's Cook:RE library through the
