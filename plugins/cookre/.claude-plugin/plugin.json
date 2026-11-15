@@ -5,7 +5,6 @@
   "author": { "name": "Chad Kirby", "url": "https://www.cookre.app" },
   "homepage": "https://www.cookre.app",
   "repository": "https://github.com/cookre-app/plugins",
-  "privacyPolicyUrl": "https://www.cookre.app/privacy",
   "license": "MIT",
   "keywords": ["recipes", "cooking", "ingredients", "meal planning"]
 }
