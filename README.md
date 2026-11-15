@@ -1,4 +1,4 @@
-# cookre-tools
+# cookre-plugins
 
 Public tools for [Cook:RE](https://www.cookre.app). Today that is the assistant plugin; other
 utilities may join it.
@@ -30,17 +30,17 @@ release.
 
 ### Install it in Claude
 
-Add `cookre-app/plugins` as a marketplace (Claude Code, or Add marketplace in the Claude app),
+Add `cookre-app/cookre-plugins` as a marketplace (Claude Code, or Add marketplace in the Claude app),
 then install the plugin. In Claude Code:
 
 ```
-/plugin install cookre --marketplace cookre-app/plugins
+/plugin install cookre --marketplace cookre-app/cookre-plugins
 ```
 
 or, in two steps:
 
 ```
-/plugin marketplace add cookre-app/plugins
+/plugin marketplace add cookre-app/cookre-plugins
 /plugin install cookre@cookre
 ```
 
