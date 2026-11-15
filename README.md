@@ -25,17 +25,17 @@ release.
 
 ### Install it in Claude
 
-Add `chadkirby/cookre-tools` as a marketplace (Claude Code, or Add marketplace in the Claude app),
+Add `cookre-app/plugins` as a marketplace (Claude Code, or Add marketplace in the Claude app),
 then install the plugin. In Claude Code:
 
 ```
-/plugin install cookre --marketplace chadkirby/cookre-tools
+/plugin install cookre --marketplace cookre-app/plugins
 ```
 
 or, in two steps:
 
 ```
-/plugin marketplace add chadkirby/cookre-tools
+/plugin marketplace add cookre-app/plugins
 /plugin install cookre@cookre
 ```
 
