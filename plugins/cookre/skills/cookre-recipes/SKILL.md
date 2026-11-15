@@ -9,6 +9,19 @@ Cook:RE holds the cook's saved recipes as structured ingredients and steps. You 
 the `cookre` tools. They can search, read, add and edit recipes and organize collections. They
 cannot import from a link or photo, or delete a recipe.
 
+## If the `cookre` tools aren't there
+
+Installing the plugin doesn't link a library. The cook still has to connect Cook:RE once: sign in
+from Claude, then confirm on their iPhone with a code. Until they do, there are no `cookre` tools
+in the conversation. When they ask about their recipes and you can't find the tools:
+
+- Tell them in one or two sentences that Cook:RE isn't connected to Claude yet. Then send them to
+  the setup guide at **https://www.cookre.app/docs/v1.2/assistant-setup**, which walks through
+  connecting Claude on a computer and pairing with the app. It needs Cook:RE Unlimited.
+- Don't try to reach Cook:RE another way, such as a shell command, a web request or a search of
+  the connector directory. There is no other way in, and nothing you find there is their library.
+- Don't guess at their recipes or answer from a general recipe instead.
+
 ## Find, read, then edit
 
 1. **Search first.** When the cook names a dish, call `search_recipes` with a few of its words
@@ -73,4 +86,4 @@ unrelated recipe.
 
 Guides for the cook, which you can link: https://www.cookre.app/docs (scaling and editing:
 https://www.cookre.app/docs/scaling-and-editing, connecting an assistant:
-https://www.cookre.app/docs/assistant-setup).
+https://www.cookre.app/docs/v1.2/assistant-setup).
