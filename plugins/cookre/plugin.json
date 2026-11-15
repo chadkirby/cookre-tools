@@ -8,7 +8,7 @@
     "url": "https://www.cookre.app"
   },
   "homepage": "https://www.cookre.app",
-  "repository": "https://github.com/cookre-app/plugins",
+  "repository": "https://github.com/cookre-app/cookre-plugins",
   "license": "MIT",
   "keywords": [
     "recipes",
